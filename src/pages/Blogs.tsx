@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Clock, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
 
 const blogs = [
   {
@@ -72,11 +73,12 @@ const blogs = [
 const Blogs = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <Navbar />
       {/* Floating orbs */}
       <div className="fixed top-20 left-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl float-animation pointer-events-none" />
       <div className="fixed bottom-20 right-10 w-96 h-96 rounded-full bg-secondary/10 blur-3xl float-animation-delayed pointer-events-none" />
 
-      <div className="relative z-10 section-container py-24">
+      <div className="relative z-10 section-container pt-32 pb-24">
         {/* Back link */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
