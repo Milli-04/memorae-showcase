@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Calendar } from "lucide-react";
+import mascotExperience from "@/assets/mascot-experience.png";
 
 const experiences = [
   {
@@ -75,6 +76,19 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-24 relative">
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-secondary/5 blur-3xl" />
+
+      {/* Floating mascot */}
+      <motion.img
+        src={mascotExperience}
+        alt=""
+        width={120}
+        height={120}
+        loading="lazy"
+        className="absolute top-16 right-8 hidden lg:block opacity-60 drop-shadow-[0_0_20px_hsla(270,60%,70%,0.25)]"
+        animate={{ y: [0, -15, 0], rotate: [0, 5, -5, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+
       <div className="section-container relative z-10">
         <div className="text-center mb-16">
           <motion.span
