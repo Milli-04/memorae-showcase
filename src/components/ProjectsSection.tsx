@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";
 import { ExternalLink, Sparkles } from "lucide-react";
-import mascotProjects from "@/assets/mascot-projects.png";
 
 const projects = [
   {
@@ -30,51 +28,21 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 relative">
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl" />
-
-      {/* Floating mascot */}
-      <motion.img
-        src={mascotProjects}
-        alt=""
-        width={100}
-        height={100}
-        loading="lazy"
-        className="absolute bottom-10 left-8 hidden lg:block opacity-50 drop-shadow-[0_0_20px_hsla(210,80%,70%,0.25)]"
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      />
-
       <div className="section-container relative z-10">
         <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-block glass-card px-4 py-1.5 text-xs font-medium text-muted-foreground mb-4"
-          >
+          <span className="inline-block glass-card px-4 py-1.5 text-xs font-medium text-muted-foreground mb-4">
             FEATURED WORK
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-heading text-4xl md:text-5xl font-bold gradient-text"
-          >
+          </span>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold gradient-text">
             Projects
-          </motion.h2>
+          </h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
+          {projects.map((project) => (
+            <div
               key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.12 }}
-              whileHover={{ y: -8, scale: 1.03 }}
-              className="glass-card p-6 group transition-all duration-500 relative overflow-hidden cursor-pointer"
+              className="glass-card p-6 group hover:scale-[1.03] transition-all duration-500 relative overflow-hidden"
             >
               {/* Gradient overlay */}
               <div
@@ -83,12 +51,7 @@ const ProjectsSection = () => {
 
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
-                  <motion.div
-                    whileHover={{ rotate: 180 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Sparkles className="w-8 h-8 text-primary" />
-                  </motion.div>
+                  <Sparkles className="w-8 h-8 text-primary" />
                   <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </div>
 
@@ -103,14 +66,14 @@ const ProjectsSection = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground font-medium group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300"
+                      className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground font-medium"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

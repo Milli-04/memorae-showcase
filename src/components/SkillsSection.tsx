@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Code2, Layers, Brain, Wrench, GraduationCap, Trophy } from "lucide-react";
-import mascotSkills from "@/assets/mascot-skills.png";
 
 const skillCategories = [
   {
@@ -37,19 +36,6 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-24 relative">
       <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full bg-accent/5 blur-3xl" />
-
-      {/* Floating mascot */}
-      <motion.img
-        src={mascotSkills}
-        alt=""
-        width={110}
-        height={110}
-        loading="lazy"
-        className="absolute top-20 left-6 hidden lg:block opacity-50 drop-shadow-[0_0_20px_hsla(330,80%,65%,0.25)]"
-        animate={{ y: [0, -12, 0], rotate: [0, -3, 3, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      />
-
       <div className="section-container relative z-10">
         <div className="text-center mb-16">
           <motion.span
@@ -81,7 +67,7 @@ const SkillsSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -6 }}
-              className="glass-card p-6 group relative overflow-hidden transition-all duration-500"
+              className={`glass-card p-6 group relative overflow-hidden transition-all duration-500`}
             >
               {/* Hover gradient overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} ${category.hoverGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -108,11 +94,11 @@ const SkillsSection = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: index * 0.1 + skillIndex * 0.03 }}
                       whileHover={{
-                        scale: 1.15,
-                        y: -3,
+                        scale: 1.1,
+                        y: -2,
                         transition: { type: "spring", stiffness: 400, damping: 15 },
                       }}
-                      className="px-4 py-2 rounded-full bg-muted text-sm font-medium text-foreground/80 cursor-default hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_20px_hsla(330,80%,65%,0.2)] transition-all duration-300"
+                      className="px-4 py-2 rounded-full bg-muted text-sm font-medium text-foreground/80 cursor-default hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_15px_hsla(330,80%,65%,0.15)] transition-all duration-300"
                     >
                       {skill}
                     </motion.span>
@@ -142,11 +128,20 @@ const SkillsSection = () => {
                 >
                   <GraduationCap className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                 </motion.div>
-                <h3 className="font-heading text-lg font-bold text-foreground">Education</h3>
+                <h3 className="font-heading text-lg font-bold text-foreground">
+                  Education
+                </h3>
               </div>
-              <p className="font-medium text-foreground">B.Tech in Computer Science & Engineering</p>
-              <p className="text-sm text-muted-foreground">Vignan's Institute of Information Technology • 2022–2026</p>
-              <motion.p whileHover={{ scale: 1.05 }} className="text-sm text-primary font-medium mt-1 inline-block">
+              <p className="font-medium text-foreground">
+                B.Tech in Computer Science & Engineering
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Vignan's Institute of Information Technology • 2022–2026
+              </p>
+              <motion.p
+                whileHover={{ scale: 1.05 }}
+                className="text-sm text-primary font-medium mt-1 inline-block"
+              >
                 CGPA: 8.92
               </motion.p>
             </div>
@@ -169,7 +164,9 @@ const SkillsSection = () => {
                 >
                   <Trophy className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
                 </motion.div>
-                <h3 className="font-heading text-lg font-bold text-foreground">Achievements</h3>
+                <h3 className="font-heading text-lg font-bold text-foreground">
+                  Achievements
+                </h3>
               </div>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {[
